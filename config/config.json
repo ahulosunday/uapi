@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "production",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": "3306"
+  },
+   "test": { 
+     "username": "",
+    "password": "",
+    "database": "sequelize_db",
+    "host": "p3plcpnl0877.prod.phx3.secureserver.net",
+    "dialect": "mysql",
+    "port": "3306"
+  },
+  "production": {
+    "username": "root",
+    "password": "root",
+    "database": "svsh_prod",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": "3306"
+  }
+}

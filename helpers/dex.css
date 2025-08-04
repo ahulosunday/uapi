@@ -1,0 +1,921 @@
+/*
+Theme Name: VW Real Estate
+Theme URI: https://www.vwthemes.com/themes/free-real-estate-wordpress-theme/
+Author: VWthemes
+Author URI: https://www.vwthemes.com
+Description: VW Real Estate is a clean, sleek and responsive theme for real estate agencies, builders, agent, directory, google maps, homes, property inclusion, agency maintaince, invoices and everything, agency idx broker, listing, MLS, property realtor, real estate invstment, house contractor, property developer, escrow, interior designers, Land Consultant, Real Estate Investor, Property Flipper, renovation services, Real Estate Investment Club, Commercial Investment Member, Bricks,Real Estate Broker, Real Estate App Developer, Real Estate Inspections, Residential Specialist, Office Realtors, landlords, chattels, freehold, landed property, plot, property dealers, agents and brokers, Building Renovations, Reconstruction Services accountants, consultants, property feature/amenities, architects and construction companies. Its multipurpose and minimal design will result in a sophisticated business website for making your business reach the zenith of success. It is made to highlight the key features of your real estate business by showing them in a creative manner. The flexible layout allows it to be used for different purposes by offering several personalization options like custom menu option, Theme Options, listing search option and many more. You don’t need to write any code while using this theme. Its user-friendly interface and optimized codes improve the overall performance of the theme as it loads the pages at a lightning-fast speed. The Bootstrap framework and stunning animations make your website look distinct. It is made to follow the latest WordPress standards as it has a code that makes this theme compliant to the latest WordPress version. The Call To Action (CTA) buttons included makes it interactive. This beautiful theme supports adding custom widgets and other elements by directly using the shortcodes that are available with the theme. For fetching the top ranks in web searches, it is made SEO friendly. You can procure the benefits of this free, modern and mobile-friendly theme for your business. Demo: https://www.vwthemes.net/vw-real-estate-pro/
+Template: vw-construction-estate
+Requires at le ast: 5.0
+Tested up to: 6.3
+Requires PHP: 7.2
+Version: 2.3.6
+License: GPLv3.0 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: vw-real-estate
+Tags: left-sidebar, right-sidebar, one-column, two-columns, three-columns, four-columns, grid-layout, wide-blocks, block-styles, flexible-header, block-patterns, custom-colors, custom-background, custom-logo, custom-menu, custom-header, editor-style, featured-images, footer-widgets, sticky-post, full-width-template, theme-options, translation-ready, threaded-comments, post-formats, rtl-language-support, blog, portfolio, e-commerce
+*/
+
+/*------- DEFAULT CSS --------*/
+
+body{
+    font-family: 'Roboto', sans-serif !important;
+    color: #909090 !important;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+a{
+    color: #e2c20c;
+    text-decoration: none !important;
+}
+select{
+    outline: none;
+    border-bottom: none;
+}
+.main-navigation a:focus{
+    outline: 1px solid #000;
+}
+
+/*------- LOGO --------*/
+.admin-bar #header {
+    margin-top: 32px;
+}
+.logo h1,
+.logo p.site-title{
+    font-size: 25px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+}
+.logo p {
+    margin-bottom: 0;
+}
+.logo h1 a,
+.logo p,
+.logo p.site-title a{
+    color: #fff;
+}
+.page-template-custom-home-page .logo h1 a, .page-template-ibtana-page-template .logo h1 a,
+.page-template-custom-home-page .logo p, .page-template-ibtana-page-template .logo p,
+.page-template-custom-home-page .logo p.site-title a, .page-template-ibtana-page-template .logo p.site-title a{
+    color: #222222 !important;
+}
+.page-template-custom-home-page .logo .site-title a:hover, .page-template-ibtana-page-template .logo .site-title a:hover,
+.logo .site-title a:hover{
+    color: #e2c20c !important;
+}
+/*-------- NAVIGATION --------- #0f3fd0*/
+
+.page-template-custom-home-page #header,
+.page-template-ibtana-page-template #header{
+    background: rgba(0, 0, 0, 0) linear-gradient( 126deg ,transparent 45%, #0f3fd0 43%) repeat scroll 0 0;
+}
+#header{
+    background: #0f3fd0;
+}
+.header-menu i {
+    color: #e2c20c;
+    font-size: 35px;
+}
+.page-template-custom-home-page .header-menu,
+.page-template-ibtana-page-template .header-menu{
+    padding: 18px 0 0;
+}
+.header-menu{
+    padding: 20px 0;
+}
+p.diff-lay,
+p.same-lay{
+    color: #fff !important;
+    margin-bottom: -5px;
+}
+.page-template-custom-home-page p.call-no, .page-template-ibtana-page-template p.call-no,
+.woocommerce h3,
+.woocommerce h2 {
+    color: #222222;
+}
+p.call-no a, p.diff-lay a{
+    color: #fff;
+}
+.page-template-custom-home-page p.call-no a,
+.page-template-ibtana-page-template p.call-no a{
+    color: #222222;
+}
+.page-template-custom-home-page p.call-no a:hover, .page-template-ibtana-page-template p.call-no a:hover,
+p.call-no a:hover, p.diff-lay a:hover{
+    color: #e2c20c;
+}
+p.call-no{
+    font-size: 25px;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+.page-template-custom-home-page .menu-bar,
+.page-template-ibtana-page-template .menu-bar{
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    top: 25px;
+}
+.menu-bar{
+    background: #fff;
+    box-shadow: 0px -5px 10px -5px #f1f1f1;
+    width: 100%;
+    margin: 15px auto 0;
+    position: static;
+    z-index: 999;
+}
+.main-navigation a {
+    font-size: 13px;
+    padding: 12px 15px;
+    color: #222222;
+    margin-top: 0;
+    text-transform: none;
+}
+.main-navigation a:hover,
+.main-navigation ul.sub-menu a:hover,
+.search-box i:hover,
+.postbox:hover h2,.grid-post-main-box:hover h2,
+.postbox:hover i,.grid-post-main-box:hover i,
+.blogbutton-small:hover,
+.sidebar td#prev a,
+.entry-content a, a,
+.footer h3,
+.textwidget p a,
+#comments p a,
+.footer .custom-social-icons i,
+.sidebar .custom-social-icons i {
+    color: #e2c20c;
+}
+.main-navigation ul ul,
+hr.big,
+input[type="submit"],
+.footer .custom-social-icons i,
+.sidebar .custom-social-icons i,
+.footer .custom-social-icons i:hover,
+.sidebar .custom-social-icons i:hover{
+    border-color: #e2c20c;
+}
+.page-template-ibtana-page-template .middle-align{
+    padding: 0em 0 0;
+}
+.page-template-ibtana-page-template .vw-free-real-estate.slider-section {
+    padding-top: 0px !important;
+}
+.bradcrumbs{
+    padding:10px 0 30px 0px;
+}
+.bradcrumbs a, .post-categories li a{
+    background: #e2c20c;
+    color:#fff;
+    padding:5px 10px;
+    margin-right:5px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.bradcrumbs a:hover, .post-categories li a:hover{
+    background: #0f3fd0 !important;
+    color: #fff;
+}
+.bradcrumbs span{
+    padding:5px 10px;
+    font-weight: 700;
+    background: #e2c20c;
+}
+input#url{
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 18px;
+    margin: 20px 0 0 0;
+    border: 1px solid #bcbcbc;
+}
+/*-------- SEARCH POPUP ---------*/
+.search-box label {
+    width: 80%;
+}
+#header form.search-form{
+    margin: 0;
+}
+.search-box {
+    background: #e2c20c;
+    padding: 6px 0;
+}
+.search-box input[type="submit"], .search-box input[type="submit"]:hover {
+    padding: 10px 16px;
+    background: url(images/search.png) no-repeat scroll 0px 0;
+}
+button.search-submit {
+    border: 0;
+    background: transparent;
+}
+.search-box input.search-field {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    font-style: italic;
+}
+/*------- SLIDER CSS --------*/
+.slider{
+    position: relative;
+}
+.slider-sec {
+    background: rgba(0, 0, 0, 0) linear-gradient( 122deg ,transparent 35%, #0f3fd0 30%) repeat scroll 0 0;
+    padding-bottom: 60px;
+}
+.slider img {
+    opacity: unset !important;
+}
+.slider .carousel-control-prev-icon i,
+.slider .carousel-control-next-icon i {
+    padding: 0;
+    background-color: transparent !important;
+    border-radius: unset;
+    font-size: 30px;
+}
+.slider .carousel-control-prev-icon i:hover,
+.slider .carousel-control-next-icon i:hover{
+    background: transparent !important;
+}
+.slider .inner_carousel h1{
+    border:none !important;
+}
+.slider .more-btn a {
+    border: none;
+    background: #e2c20c;
+    padding: 15px 25px;
+    font-size: 15px;
+}
+.slider .more-btn a:hover{
+    background: #0f3fd0;
+}
+/*------- ABOUT CSS --------*/
+.about-section h3,
+.about-section p,
+.about-btn{
+    padding: 0;
+    border:none;
+}
+.about-section h3 {
+    color: #222222;
+    text-transform: none;
+    font-size: 35px;
+}
+.about-btn a {
+    padding: 15px 20px;
+    background: #e2c20c;
+    border: none;
+    text-decoration: none;
+    color: #fff;
+}
+.about-btn a:hover {
+    background: #0f3fd0;
+    color: #fff;
+}
+/*------- POST CSS --------*/
+#contact {
+    background: rgba(0, 0, 0, 0) linear-gradient( 123deg ,transparent 19.3%, #0f3fd0 18%) repeat scroll 0 0;
+    padding: 10px 0 30px;
+}
+.contact-no {
+    background: #e2c20c;
+    padding: 10px;
+    margin: 25px 0;
+}
+.contact-no i,
+.contact-no span a{
+    color: #fff !important;
+    font-size: 25px;
+}
+.contact-no span a:hover{
+    color: #0f3fd0 !important;
+}
+.contact-btn a {
+    background: #e2c20c;
+    padding: 15px 20px;
+    border: 2px solid #e2c20c;
+}
+.contact-content h2,
+#contact,
+.footer .custom-social-icons,
+.sidebar .custom-social-icons{
+    text-align: center;
+}
+.contact-content h2{
+    text-transform: none;
+    font-size: 35px;
+}
+.contact-btn a:hover{
+    background: #fff;
+    border: 2px solid #fff;
+    color: #0f3fd0;
+}
+.footer a.custom_read_more {
+    background: #e2c20c;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    color: #fff !important;
+    border: none;
+}
+.footer a.custom_read_more:hover {
+    background: #0f3fd0;
+    color: #fff;
+}
+/* --------- CATEGORY SECTION ------- */
+#serv-section{
+    padding:3% 0;
+    text-align: center;
+}
+.serv-box {
+    margin-bottom: 20px;
+    position: relative;
+}
+.serv-box h4 {
+    display: none;
+}
+.serv-box:hover h4 {
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+    background: #fff;
+    position: absolute;
+    font-weight: 600;
+    bottom: 25px;
+    right: 50px;
+    left: 50px;
+}
+.serv-box:hover h4 a:hover{
+    color: #e2c20c;
+}
+#serv-section p {
+    font-weight: bold;
+    color: #222222;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+#serv-section h3 {
+    text-transform: none;
+    color: #222222;
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-size: 30px;
+}
+/*------- POST CSS --------*/
+#our-services .new-text{
+    padding: 0 10px;
+}
+.postbox:hover h2.section-title a,.grid-post-main-box:hover h2.section-title a, .postbox:hover .entry-date a, .grid-post-main-box:hover .entry-date a, .postbox:hover .entry-author a,.grid-post-main-box:hover .entry-author a, .metabox:hover a{
+    color: #0f3fd0;
+}
+.postbox h2,.grid-post-main-box h2 {
+    font-size: 25px;
+    letter-spacing: 0;
+    padding: 0 0 10px;
+    font-weight: 700;
+}
+h2.section-title a,
+.blog-icon i,
+.sidebar th,
+.sidebar caption,
+.post-navigation .meta-nav,
+.content-vw h1,
+.serv-box h4 a,
+.sidebar select,
+.sidebar td,
+.sidebar .tagcloud a,
+.related-post h3,
+.woocommerce .quantity .qty,
+.related.products h2,
+#tab-reviews h2,
+#tab-description h2{
+    color: #222222;
+}
+.postbox p,.grid-post-main-box p {
+    font-size: 13px;
+    color: #909090;
+    margin: 15px 0 10px;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.metabox,
+.entry-date a, .entry-author a {
+    color: #909090;
+    clear: both;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+.metabox i{
+    font-size: 12px;
+    color: #909090;
+}
+.read-btn{
+    margin: 25px 0;
+    display: block;
+}
+.read_full a,
+.sidebar a.custom_read_more{
+    background: #e2c20c !important;
+    font-weight: bold;
+    font-size: 14px;
+}
+.read_full a:hover{
+    background: #0f3fd0 !important;
+    color: #fff;
+}
+.sidebar a.custom_read_more:hover,
+.footer .custom-social-icons i:hover,
+.sidebar .custom-social-icons i:hover,
+.sidebar .custom-contact-us input[type="submit"]:hover,
+.sidebar input[type="submit"]:hover,
+input[type="submit"]:hover,
+.scrollup i:hover,
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover,
+a.button:hover,
+.sidebar h3,
+h1.entry-title,
+h2.entry-title,
+h1.page-title, .sidebar .wp-block-search .wp-block-search__label{
+    background: #0f3fd0;
+    color: #fff;
+}
+.pagination .current,
+.pagination a:hover{
+    background: #0f3fd0 !important;
+    color: #fff;
+}
+.serach_inner input.search-submit:hover,
+.footer{
+    background: #222222 !important;
+}
+.pagination{
+    margin-bottom: 20px;
+}
+.pagination span,
+.pagination a{
+    background: #e2c20c !important;
+}
+.single-post h1,
+.middle-align h1 {
+    font-weight: bold;
+}
+#comments input[type="submit"].submit{
+    background: #e2c20c !important;
+}
+h1.entry-title, h2.entry-title, h1.page-title{
+    font-size: 15px;
+    text-transform: none;
+}
+nav.navigation.posts-navigation .nav-previous a{
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 13px;
+    font-weight: bold;
+    text-align: left;
+    background: #e2c20c;
+}
+nav.navigation.posts-navigation .nav-next a{
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 13px;
+    font-weight: bold;
+    text-align: right;
+    background: #e2c20c;
+}
+nav.navigation.posts-navigation .nav-previous a:hover, nav.navigation.posts-navigation .nav-next a:hover {
+    background: #0f3fd0;
+    color: #fff;
+    transition-duration: 0.5s;
+}
+#comments .comment-content{
+    margin: 0;
+}
+#comments ol {
+    list-style: none;
+    padding-left: 0;
+}
+nav.woocommerce-MyAccount-navigation ul{
+    padding-left: 0;
+}
+.woocommerce span.posted_in a:hover{
+    color: #0f3fd0 !important;
+}
+.woocommerce .cart .button{
+    padding: 10px;
+}
+.postbox h2,.grid-post-main-box h2{
+    padding: 10px 0 10px;
+}
+/*------- SIDEBAR CSS --------*/
+.sidebar ul li{
+    padding: 8px 0 !important;
+}
+.sidebar input[type="submit"],
+.footer input[type="submit"],
+.sidebar td#today,
+.footer .tagcloud a:hover,
+.scrollup i,
+input[type="submit"],
+.woocommerce #respond input#submit,
+.woocommerce a.button, .woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce span.onsale,
+nav.woocommerce-MyAccount-navigation ul li,
+#comments a.comment-reply-link,
+.sidebar .woocommerce-product-search button,
+.sidebar .widget_price_filter .ui-slider .ui-slider-range,
+.sidebar .widget_price_filter .ui-slider .ui-slider-handle,
+.footer .woocommerce-product-search button,
+.footer .widget_price_filter .ui-slider .ui-slider-range,
+.footer .widget_price_filter .ui-slider .ui-slider-handle,
+.footer .custom-social-icons i,
+.sidebar .custom-social-icons i,
+.sidebar .tagcloud a:hover,
+a.button, .sidebar .wp-block-search .wp-block-search__button{
+    background: #e2c20c;
+}
+.sidebar ul li a{
+    color: #909090;
+}
+.sidebar ul li a:hover, .footer li a:hover{
+    color: #e2c20c;
+}
+.sidebar td#today a,
+a.rsswidget,
+a.button{
+    color: #fff;
+}
+.sidebar h3, .sidebar .wp-block-search .wp-block-search__label{
+    margin-top: 0;
+}
+.sidebar h3:after,
+h1.entry-title:after,
+h2.entry-title:after,
+h1.page-title:after, .sidebar .wp-block-search .wp-block-search__label:after{
+    border-top-color:#0f3fd0;
+}
+.woocommerce-message{
+    border-top-color: #e2c20c;
+}
+.woocommerce .quantity .qty{
+    border-color: #222222;
+    padding: 4px;
+}
+h2.woocommerce-loop-product__title, .woocommerce div.product .product_title {
+    font-size: 20px !important;
+    font-weight: bold;
+}
+.woocommerce h1.product_title.entry-title{
+    font-size: 30px !important;
+    letter-spacing: 0;
+    font-weight: bold;
+    color: #222222;
+}
+.related.products h2{
+    margin-bottom: 20px;
+    text-transform: none;
+}
+.footer .custom-social-icons i,
+.sidebar .custom-social-icons i{
+    color: #fff !important;
+}
+.woocommerce form.login input[type="password"] {
+    padding: 10px;
+    border: 1px solid #bcbcbc;
+}
+.woocommerce input#password{
+    border: 1px solid #bcbcbc;
+}
+.woocommerce-page form .password-input{
+    width: 100%;
+}
+.woocommerce label {
+    width: 100%;
+}
+.woocommerce nav.woocommerce-pagination ul li a {
+    display: block;
+    margin: 2px 2px 2px 0;
+    padding: 12px 15px;
+    text-decoration: none;
+    width: auto;
+    color: #fff;
+    background: #e2c20c !important;
+    transition: background .15s ease-in-out;
+    font-weight: bold;
+}
+.woocommerce nav.woocommerce-pagination ul li a:hover{
+    background: #0f3fd0 !important;
+    color: #fff;
+}
+.woocommerce nav.woocommerce-pagination ul li span.current{
+    padding: 12px 15px;
+    background: #0f3fd0 !important;
+    color: #fff;
+    font-weight: normal;
+}
+.woocommerce nav.woocommerce-pagination ul, .woocommerce nav.woocommerce-pagination ul li{
+    border: none;
+    float: none;
+    overflow: unset;
+}
+.woocommerce nav.woocommerce-pagination {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.woocommerce .cart .button{
+    background: #e2c20c;
+    color: #fff !important;
+    opacity: 1 !important;
+}
+.woocommerce .cart .button:hover{
+    background: #0f3fd0 !important;
+}
+.woocommerce-cart table.cart td.actions .coupon .input-text{
+    width: 110px !important;
+    padding: 8px 5px 8px !important;
+    margin: 0px 10px 0px 0 !important;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation {
+    margin-bottom: 30px;
+}
+#payment {
+    margin-bottom: 30px;
+}
+.woocommerce ul.products li.product a img{
+    margin: 0 0 5px 0;
+}
+a.checkout-button.button.alt.wc-forward{
+    padding: 10px;
+}
+.woocommerce h3#order_review_heading{
+    padding: 20px 0 5px 0;
+}
+.woocommerce .cart .button {
+    padding: 10px;
+}
+/*------- FOOTER CSS --------*/
+
+.footer-2 {
+    background: #e2c20c;
+    border-top: 0;
+}
+.footer h3, .footer .wp-block-search .wp-block-search__label{
+    border-bottom: 1px solid #e2c20c;
+    color: #e2c20c;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-weight: bold;
+}
+.footer .wp-block-search .wp-block-search__label{
+    padding: 0 0 5px 0;
+    margin: 0px 0 30px 0;
+}
+.copyright p{
+    font-weight: 600;
+    letter-spacing: 0;
+}
+.copyright a:hover{
+    color: #222222;
+}
+.scrollup i{
+    color: #fff !important;
+    border: none;
+}
+.wp-block-search__inside-wrapper{
+    display: block !important;
+}
+.footer .wp-block-search .wp-block-search__inside-wrapper{
+    flex-wrap: wrap;
+}
+.footer .wp-block-search .wp-block-search__input {
+    padding:10px 10px;
+    font-size:15px;
+    margin-bottom: 10px;
+    color:#4d4749;
+    border: solid 1px #e1e1e1;
+    width: 100%;
+}
+.footer .wp-block-search .wp-block-search__button{
+    background: #e2c20c;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 2px;
+    width: 100%;
+    margin-left: 0;
+}
+/*----------- PRELOADER ----------*/
+#preloader {
+    background-color: #e2c20c;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999999;
+    height: 100%;
+}
+.loader-inner {
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+.loader-line-wrap {
+    animation: spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite;
+    box-sizing: border-box;
+    height: 50px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform-origin: 50% 100%;
+    width: 100px;
+}
+.loader-line {
+    border: 4px solid #0f3fd0;
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 100px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) .loader-line {
+    height: 90px;
+    width: 90px;
+    top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+    height: 76px;
+    width: 76px;
+    top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+    height: 62px;
+    width: 62px;
+    top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+    height: 48px;
+    width: 48px;
+    top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+    height: 34px;
+    width: 34px;
+    top: 35px;
+}
+@keyframes spin {
+    0%, 15% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.elementor-page #preloader{
+    display: none;
+}
+.woocommerce a.button:hover{
+    background: #0f3fd0 !important;
+}
+
+span.post-page-numbers.current{
+    background: #e2c20c;
+}
+.post-nav-links a{
+    background: #0f3fd0;
+}
+.post-nav-links a:hover{
+    background: #e2c20c;;
+}
+.sidebar h3, .sidebar .wp-block-search .wp-block-search__label, .sidebar .wp-block-heading{
+    background: #0f3fd0;
+}
+.sidebar h3:after, .sidebar .wp-block-heading:after{
+    border-top-color:#0f3fd0;
+}
+.footer .custom-about-us a.custom_read_more{
+    background: #e2c20c !important;
+}
+.wp-block-calendar a{
+    color: #e2c20c;
+}
+/*------- MEDIA CSS --------*/
+
+@media screen and (max-width:720px) {
+    .page-template-custom-home-page .menu-bar,
+    .page-template-ibtana-page-template .menu-bar{
+        position: static;
+        width: 100%;
+        margin: 15px 0 0;
+    }
+    .slider-sec{
+        padding-bottom: 30px;
+    }
+    .page-template-custom-home-page #header,
+    .page-template-ibtana-page-template #header{
+        background: #0f3fd0;
+    }
+    .page-template-custom-home-page .logo h1 a, .page-template-ibtana-page-template .logo h1 a,
+    .page-template-custom-home-page .logo p, .page-template-ibtana-page-template .logo p,
+    .page-template-custom-home-page .logo p.site-title a, .page-template-ibtana-page-template .logo p.site-title a,
+    .page-template-custom-home-page p.call-no a, .page-template-ibtana-page-template p.call-no a{
+        color: #fff !important;
+    }
+    .logo,
+    .header-menu{
+        text-align: center;
+    }
+    .admin-bar #header {
+        margin-top: 46px;
+    }
+    .search-box input[type="submit"] {
+        padding: 10px 14px;
+        background: url(images/search.png) no-repeat scroll 0 5px;
+    }
+    #contact {
+        background: rgba(0, 0, 0, 0) linear-gradient( 180deg ,transparent 19.3%, #0f3fd0 18%) repeat scroll 0 0 !important;
+    }
+    .postbox h2,.grid-post-main-box h2{
+        padding: 10px 0;
+    }
+    .slider .more-btn a{
+        padding: 12px 15px;
+    }
+}
+@media screen and ( max-width: 788px ) and ( min-width: 768px ) {
+    .admin-bar #header {
+        margin-top: 46px;
+    }
+    p.call-no{
+        line-height: 1;
+    }
+    .serv-box:hover h4{
+        bottom: 10px;
+    }
+    body.admin-bar #mySidenav{
+        margin-top: 40px !important;
+    }
+}
+@media screen and (max-width: 1000px){
+    .slider .inner_carousel h1{
+        font-size: 30px;
+    }
+    .sidenav .closebtn i{
+        color: #000;
+    }
+    .toggle-nav i {
+        background: #e2c20c;
+        border: none;
+        margin: 0;
+        color: #fff !important;
+        font-size: 20px;
+        padding: 17px;
+    }
+    .toggle-nav{
+        position: static;
+        width: auto;
+        text-align: left;
+    }
+    .slider img {
+        height: auto !important;
+    }
+}
+@media screen and ( max-width: 1199px ) and ( min-width: 1024px ) {
+    .search-box input[type="submit"] {
+        padding: 10px 14px;
+        background: url(images/search.png) no-repeat scroll 0px 5px;
+    }
+}

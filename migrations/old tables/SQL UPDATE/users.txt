@@ -1,0 +1,109 @@
+ALTER TABLE `ehmrs_dev`.`user` 
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `roleid`,
+CHANGE COLUMN `name` `username` VARCHAR(100) NOT NULL DEFAULT '' ,
+CHANGE COLUMN `passwd` `password` VARCHAR(100) NOT NULL ,
+CHANGE COLUMN `entity_id` `phone` VARCHAR(45) NOT NULL ,
+CHANGE COLUMN `firstname` `surname` VARCHAR(100) NULL DEFAULT NULL ,
+CHANGE COLUMN `lastname` `othername` VARCHAR(100) NULL DEFAULT NULL ,
+CHANGE COLUMN `tdate` `createdAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+CHANGE COLUMN `img` `imgurl` VARCHAR(100) NOT NULL DEFAULT '' ,
+CHANGE COLUMN `active` `isActive` BIT(1) NULL DEFAULT b'1' ,
+CHANGE COLUMN `editedby` `roleid` INT(11) NULL DEFAULT '1' ;
+ALTER TABLE `ehmrs_dev`.`user` 
+ADD COLUMN `uiid` VARCHAR(45) NULL AFTER `updatedAt`,
+ADD column `email` varchar(45) nuLl default '';
+
+ALTER TABLE `ehmrs_dev`.`roles` 
+CHANGE COLUMN `action` `description` VARCHAR(45) NOT NULL ;
+truncate ehmrs_dev.roles;
+
+
+ALTER TABLE `ehmrs_dev`.`bank` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `chart_of_account_id`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+
+ALTER TABLE `ehmrs_dev`.`bank_transaction` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `jid2`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+ALTER TABLE `ehmrs_dev`.`cash_transaction` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `jid2`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+ALTER TABLE `ehmrs_dev`.`ewallets` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `uid`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+ALTER TABLE `ehmrs_dev`.`journal` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `amt`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+ALTER TABLE `ehmrs_dev`.`chart_of_account` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT current_timestamp AFTER `acc_type_id`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT current_timestamp AFTER `createdAt`;
+
+
+update `ehmrs_dev`.`chart_of_account` 
+set `createdAt` = tdate,
+`updatedAt` = tdate where id <> 0;
+ALTER TABLE `ehmrs_dev`.`outpts` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `email`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+ALTER TABLE `ehmrs_dev`.`payment` 
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `jid2`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+update `ehmrs_dev`.`payment` 
+set `createdAt` = tdate,
+`updatedAt` = vdate where id < 300000;
+
+update `ehmrs_dev`.`payment` 
+set `createdAt` = tdate,
+`updatedAt` = vdate where id between 300000 and 500000;
+
+update payment set createdAt = tdate, updatedAt = vdate where id > 500000;
+
+update `ehmrs_dev`.`payment` 
+set `createdAt` = tdate,
+`updatedAt` = vdate where id = 300000;
+
+ALTER TABLE `ehmrs_dev`.`permissions` 
+ADD COLUMN `description` VARCHAR(45) NULL AFTER `name`,
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `description`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+
+ALTER TABLE `ehmrs_dev`.`permissions` 
+ADD COLUMN `description` VARCHAR(45) NULL AFTER `name`,
+ADD COLUMN `createdAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `description`,
+ADD COLUMN `updatedAt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP AFTER `createdAt`;
+
+alter table `ehmrs_dev`.`refund`
+ add column createdAt datetime null default current_timestamp after `qty`,
+add column `updatedAt` datetime null default current_timestamp after `createdAt`;
+
+update `ehmrs_dev`.`refund` 
+set `createdAt` = tdate,
+`updatedAt` = vdate where pid <> 0;
+
+
+UPDATE `ehmrs_dev`.`user` SET `password` = '$2a$10$dBkqwfARQbWy4kn569JppujDuSP.P4oNm0Oj7.P8PtC.i0FGbRLRG' WHERE (`id` = '1');
+
+UPDATE `ehmrs_dev`.`user` SET `uiid` = '12a949e0-2f69-11ee-8b5e-47bb6a50763d' WHERE (`id` = '1');
+
+
+ALTER TABLE `ehmrs_dev`.`user` 
+ADD COLUMN `email` VARCHAR(45) NULL AFTER `uiid`;
+UPDATE `ehmrs_dev`.`user` SET `othername` = 'Admin' WHERE (`id` = '1');
+ update ehmrs_dev.user set email = username where id > 0;
+
+ update permissions set name ='DELETE_USER',
+        description = 'Can delete users',
+        createdAt = '2023-07-31 06:51:23',
+       updatedAt = '2023-07-31 06:51:23' where id = 6;
+
+	   update permissions set  name = 'ADD_ROLES',
+        description = 'Can add roles to users',
+        createdAt = '2023-07-31 06:51:23',
+       updatedAt = '2023-07-31 06:51:23' where id = 1;

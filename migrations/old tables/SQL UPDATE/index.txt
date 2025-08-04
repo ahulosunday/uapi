@@ -1,0 +1,1601 @@
+--
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `account_types`
+--
+ALTER TABLE `account_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `additional_items`
+--
+ALTER TABLE `additional_items`
+  ADD PRIMARY KEY (`ai_id`);
+
+--
+-- Indexes for table `additional_prescriptions`
+--
+ALTER TABLE `additional_prescriptions`
+  ADD PRIMARY KEY (`ap_id`);
+
+--
+-- Indexes for table `admissions`
+--
+ALTER TABLE `admissions`
+  ADD PRIMARY KEY (`admission_id`);
+
+--
+-- Indexes for table `admission_items`
+--
+ALTER TABLE `admission_items`
+  ADD PRIMARY KEY (`aitem_id`);
+
+--
+-- Indexes for table `admission_requests`
+--
+ALTER TABLE `admission_requests`
+  ADD PRIMARY KEY (`admisssion_request_id`);
+
+--
+-- Indexes for table `alerts`
+--
+ALTER TABLE `alerts`
+  ADD PRIMARY KEY (`alert_id`);
+
+--
+-- Indexes for table `allergies`
+--
+ALTER TABLE `allergies`
+  ADD PRIMARY KEY (`allergy_id`);
+
+--
+-- Indexes for table `antenatals`
+--
+ALTER TABLE `antenatals`
+  ADD PRIMARY KEY (`ante_natal_id`);
+
+--
+-- Indexes for table `antenataltreatments`
+--
+ALTER TABLE `antenataltreatments`
+  ADD PRIMARY KEY (`ante_treat_id`);
+
+--
+-- Indexes for table `antenatal_histories`
+--
+ALTER TABLE `antenatal_histories`
+  ADD PRIMARY KEY (`ah_id`);
+
+--
+-- Indexes for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`appointment_id`);
+
+--
+-- Indexes for table `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `Index_2` (`acc_number`),
+  ADD KEY `chart_idx` (`chart_of_account_id`);
+
+--
+-- Indexes for table `bank_transaction`
+--
+ALTER TABLE `bank_transaction`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `jid2` (`jid2`),
+  ADD KEY `FK_bank_transaction_1` (`bank_id`),
+  ADD KEY `FK_bank_transaction_2` (`jid`);
+
+--
+-- Indexes for table `beds`
+--
+ALTER TABLE `beds`
+  ADD PRIMARY KEY (`bed_id`);
+
+--
+-- Indexes for table `benefit_packages`
+--
+ALTER TABLE `benefit_packages`
+  ADD PRIMARY KEY (`bp_id`);
+
+--
+-- Indexes for table `booksurgeries`
+--
+ALTER TABLE `booksurgeries`
+  ADD PRIMARY KEY (`bs_id`);
+
+--
+-- Indexes for table `careplans`
+--
+ALTER TABLE `careplans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cash_transaction`
+--
+ALTER TABLE `cash_transaction`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `jid` (`jid`),
+  ADD UNIQUE KEY `jid2` (`jid2`);
+
+--
+-- Indexes for table `chart_of_account`
+--
+ALTER TABLE `chart_of_account`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_chart_of_account_1` (`acc_type_id`);
+
+--
+-- Indexes for table `chemicalpathology_tests`
+--
+ALTER TABLE `chemicalpathology_tests`
+  ADD PRIMARY KEY (`cp_id`);
+
+--
+-- Indexes for table `clinicalnotes`
+--
+ALTER TABLE `clinicalnotes`
+  ADD PRIMARY KEY (`cn_id`);
+
+--
+-- Indexes for table `codes`
+--
+ALTER TABLE `codes`
+  ADD PRIMARY KEY (`code_id`);
+
+--
+-- Indexes for table `consultations`
+--
+ALTER TABLE `consultations`
+  ADD PRIMARY KEY (`consultation_id`);
+
+--
+-- Indexes for table `dailyreports`
+--
+ALTER TABLE `dailyreports`
+  ADD PRIMARY KEY (`dr_id`);
+
+--
+-- Indexes for table `deliveryinfos`
+--
+ALTER TABLE `deliveryinfos`
+  ADD PRIMARY KEY (`di_id`);
+
+--
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`department_id`);
+
+--
+-- Indexes for table `dependants`
+--
+ALTER TABLE `dependants`
+  ADD PRIMARY KEY (`dependant_id`);
+
+--
+-- Indexes for table `discharges`
+--
+ALTER TABLE `discharges`
+  ADD PRIMARY KEY (`discharge_id`);
+
+--
+-- Indexes for table `dispensary_returns`
+--
+ALTER TABLE `dispensary_returns`
+  ADD PRIMARY KEY (`dr_id`);
+
+--
+-- Indexes for table `donors`
+--
+ALTER TABLE `donors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dosage_forms`
+--
+ALTER TABLE `dosage_forms`
+  ADD PRIMARY KEY (`dosage_id`);
+
+--
+-- Indexes for table `dosage_routes`
+--
+ALTER TABLE `dosage_routes`
+  ADD PRIMARY KEY (`route_id`);
+
+--
+-- Indexes for table `drugs`
+--
+ALTER TABLE `drugs`
+  ADD PRIMARY KEY (`drug_id`);
+
+--
+-- Indexes for table `enrollees`
+--
+ALTER TABLE `enrollees`
+  ADD PRIMARY KEY (`enrollee_id`);
+
+--
+-- Indexes for table `ewallets`
+--
+ALTER TABLE `ewallets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `haematology_tests`
+--
+ALTER TABLE `haematology_tests`
+  ADD PRIMARY KEY (`hy_id`);
+
+--
+-- Indexes for table `hmos`
+--
+ALTER TABLE `hmos`
+  ADD PRIMARY KEY (`hmo_id`);
+
+--
+-- Indexes for table `icd10_classifications`
+--
+ALTER TABLE `icd10_classifications`
+  ADD PRIMARY KEY (`class_id`);
+
+--
+-- Indexes for table `icd10_diseases`
+--
+ALTER TABLE `icd10_diseases`
+  ADD PRIMARY KEY (`disease_id`);
+
+--
+-- Indexes for table `icd10_sub_classifications`
+--
+ALTER TABLE `icd10_sub_classifications`
+  ADD PRIMARY KEY (`sub_class_id`);
+
+--
+-- Indexes for table `icpc2_diseases`
+--
+ALTER TABLE `icpc2_diseases`
+  ADD PRIMARY KEY (`disease_id`);
+
+--
+-- Indexes for table `imagings`
+--
+ALTER TABLE `imagings`
+  ADD PRIMARY KEY (`imaging_id`);
+
+--
+-- Indexes for table `immunizations`
+--
+ALTER TABLE `immunizations`
+  ADD PRIMARY KEY (`immunization_id`);
+
+--
+-- Indexes for table `info`
+--
+ALTER TABLE `info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `insurances`
+--
+ALTER TABLE `insurances`
+  ADD PRIMARY KEY (`insurance_id`);
+
+--
+-- Indexes for table `investigations`
+--
+ALTER TABLE `investigations`
+  ADD PRIMARY KEY (`investigation_id`);
+
+--
+-- Indexes for table `iocharts`
+--
+ALTER TABLE `iocharts`
+  ADD PRIMARY KEY (`iochart_id`);
+
+--
+-- Indexes for table `ipinventories`
+--
+ALTER TABLE `ipinventories`
+  ADD PRIMARY KEY (`ipinv_id`);
+
+--
+-- Indexes for table `ipinventorydispensehistories`
+--
+ALTER TABLE `ipinventorydispensehistories`
+  ADD PRIMARY KEY (`ipdisp_id`);
+
+--
+-- Indexes for table `journal`
+--
+ALTER TABLE `journal`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_journal_1` (`acc_id`);
+
+--
+-- Indexes for table `labdispensehistories`
+--
+ALTER TABLE `labdispensehistories`
+  ADD PRIMARY KEY (`ldh_id`);
+
+--
+-- Indexes for table `labinventories`
+--
+ALTER TABLE `labinventories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `labitems`
+--
+ALTER TABLE `labitems`
+  ADD PRIMARY KEY (`litem_id`);
+
+--
+-- Indexes for table `laboratories`
+--
+ALTER TABLE `laboratories`
+  ADD PRIMARY KEY (`lab_id`);
+
+--
+-- Indexes for table `lab_item_logs`
+--
+ALTER TABLE `lab_item_logs`
+  ADD PRIMARY KEY (`lil_id`);
+
+--
+-- Indexes for table `managerrequests`
+--
+ALTER TABLE `managerrequests`
+  ADD PRIMARY KEY (`mrequest_id`);
+
+--
+-- Indexes for table `mappings`
+--
+ALTER TABLE `mappings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uniquekey` (`mappingcode`,`tablename`,`chartofaccount_id`) USING BTREE,
+  ADD KEY `fk0_idx` (`chartofaccount_id`);
+
+--
+-- Indexes for table `microbiology_tests`
+--
+ALTER TABLE `microbiology_tests`
+  ADD PRIMARY KEY (`mt_id`);
+
+--
+-- Indexes for table `nhisdrugs`
+--
+ALTER TABLE `nhisdrugs`
+  ADD PRIMARY KEY (`ndrug_id`);
+
+--
+-- Indexes for table `nhisininventories`
+--
+ALTER TABLE `nhisininventories`
+  ADD PRIMARY KEY (`nhinv_id`);
+
+--
+-- Indexes for table `nhisininventorydispensehistories`
+--
+ALTER TABLE `nhisininventorydispensehistories`
+  ADD PRIMARY KEY (`nhdisp_id`);
+
+--
+-- Indexes for table `nhisinvestigations`
+--
+ALTER TABLE `nhisinvestigations`
+  ADD PRIMARY KEY (`ninvestigation_id`);
+
+--
+-- Indexes for table `nhisoutinventories`
+--
+ALTER TABLE `nhisoutinventories`
+  ADD PRIMARY KEY (`noutinv_id`);
+
+--
+-- Indexes for table `nhisoutinventorydispensehistories`
+--
+ALTER TABLE `nhisoutinventorydispensehistories`
+  ADD PRIMARY KEY (`noutdisp_id`);
+
+--
+-- Indexes for table `nhisservices`
+--
+ALTER TABLE `nhisservices`
+  ADD PRIMARY KEY (`nservice_id`);
+
+--
+-- Indexes for table `nhissurgeries`
+--
+ALTER TABLE `nhissurgeries`
+  ADD PRIMARY KEY (`nsurgery_id`);
+
+--
+-- Indexes for table `nhistests`
+--
+ALTER TABLE `nhistests`
+  ADD PRIMARY KEY (`ntest_id`);
+
+--
+-- Indexes for table `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`note_id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`nid`);
+
+--
+-- Indexes for table `notificats`
+--
+ALTER TABLE `notificats`
+  ADD PRIMARY KEY (`nid`);
+
+--
+-- Indexes for table `nurseinventories`
+--
+ALTER TABLE `nurseinventories`
+  ADD PRIMARY KEY (`ninv_id`);
+
+--
+-- Indexes for table `opinventories`
+--
+ALTER TABLE `opinventories`
+  ADD PRIMARY KEY (`opinv_id`);
+
+--
+-- Indexes for table `opinventorydispensehistories`
+--
+ALTER TABLE `opinventorydispensehistories`
+  ADD PRIMARY KEY (`opdisp_id`);
+
+--
+-- Indexes for table `outpts`
+--
+ALTER TABLE `outpts`
+  ADD PRIMARY KEY (`outpt_id`),
+  ADD UNIQUE KEY `uniques` (`name`);
+
+--
+-- Indexes for table `patients`
+--
+ALTER TABLE `patients`
+  ADD PRIMARY KEY (`patient_id`);
+
+--
+-- Indexes for table `patient_diagnoses`
+--
+ALTER TABLE `patient_diagnoses`
+  ADD PRIMARY KEY (`diagnosis_id`);
+
+--
+-- Indexes for table `patient_histories`
+--
+ALTER TABLE `patient_histories`
+  ADD PRIMARY KEY (`ph_id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `payment` (`service_name`,`payment_id`) USING BTREE,
+  ADD KEY `FK_payment_2` (`editedby`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pharmacydispensehistories`
+--
+ALTER TABLE `pharmacydispensehistories`
+  ADD PRIMARY KEY (`pdh_id`);
+
+--
+-- Indexes for table `pharmacyitemlogs`
+--
+ALTER TABLE `pharmacyitemlogs`
+  ADD PRIMARY KEY (`pilogs_id`);
+
+--
+-- Indexes for table `pharmacyitems`
+--
+ALTER TABLE `pharmacyitems`
+  ADD PRIMARY KEY (`pitem_id`);
+
+--
+-- Indexes for table `plans`
+--
+ALTER TABLE `plans`
+  ADD PRIMARY KEY (`plan_id`);
+
+--
+-- Indexes for table `postnatals`
+--
+ALTER TABLE `postnatals`
+  ADD PRIMARY KEY (`pn_id`);
+
+--
+-- Indexes for table `prescribeddrugs`
+--
+ALTER TABLE `prescribeddrugs`
+  ADD PRIMARY KEY (`pd_id`);
+
+--
+-- Indexes for table `prescribedimagings`
+--
+ALTER TABLE `prescribedimagings`
+  ADD PRIMARY KEY (`pi_id`);
+
+--
+-- Indexes for table `prescribedservices`
+--
+ALTER TABLE `prescribedservices`
+  ADD PRIMARY KEY (`ps_id`);
+
+--
+-- Indexes for table `prescribedtests`
+--
+ALTER TABLE `prescribedtests`
+  ADD PRIMARY KEY (`pt_id`);
+
+--
+-- Indexes for table `presentpregnancies`
+--
+ALTER TABLE `presentpregnancies`
+  ADD PRIMARY KEY (`pp_id`);
+
+--
+-- Indexes for table `previouspregnancies`
+--
+ALTER TABLE `previouspregnancies`
+  ADD PRIMARY KEY (`prvp_id`);
+
+--
+-- Indexes for table `pvheader`
+--
+ALTER TABLE `pvheader`
+  ADD PRIMARY KEY (`pv_id`),
+  ADD UNIQUE KEY `unique` (`voucherno`),
+  ADD KEY `pv_idx` (`vouchertype`),
+  ADD KEY `u_idx` (`editedby`);
+
+--
+-- Indexes for table `pv_details`
+--
+ALTER TABLE `pv_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pv_type`
+--
+ALTER TABLE `pv_type`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name_UNIQUE` (`name`);
+
+--
+-- Indexes for table `refund`
+--
+ALTER TABLE `refund`
+  ADD KEY `pid` (`pid`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`request_id`);
+
+--
+-- Indexes for table `return_items`
+--
+ALTER TABLE `return_items`
+  ADD PRIMARY KEY (`return_item_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `action_UNIQUE` (`action`);
+
+--
+-- Indexes for table `role_perm`
+--
+ALTER TABLE `role_perm`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pid_idx` (`pid`),
+  ADD KEY `rid_idx` (`roleid`);
+
+--
+-- Indexes for table `routinedrugs`
+--
+ALTER TABLE `routinedrugs`
+  ADD PRIMARY KEY (`routine_drug_id`);
+
+--
+-- Indexes for table `scan_photos`
+--
+ALTER TABLE `scan_photos`
+  ADD PRIMARY KEY (`sp_id`);
+
+--
+-- Indexes for table `scan_tests`
+--
+ALTER TABLE `scan_tests`
+  ADD PRIMARY KEY (`sc_id`);
+
+--
+-- Indexes for table `sequelizemeta`
+--
+ALTER TABLE `sequelizemeta`
+  ADD PRIMARY KEY (`name`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`service_id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `sms`
+--
+ALTER TABLE `sms`
+  ADD PRIMARY KEY (`sms_id`);
+
+--
+-- Indexes for table `stafflogins`
+--
+ALTER TABLE `stafflogins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `staffs`
+--
+ALTER TABLE `staffs`
+  ADD PRIMARY KEY (`staff_id`);
+
+--
+-- Indexes for table `supplies`
+--
+ALTER TABLE `supplies`
+  ADD PRIMARY KEY (`supply_id`);
+
+--
+-- Indexes for table `surgeries`
+--
+ALTER TABLE `surgeries`
+  ADD PRIMARY KEY (`surgery_id`);
+
+--
+-- Indexes for table `tests`
+--
+ALTER TABLE `tests`
+  ADD PRIMARY KEY (`test_id`);
+
+--
+-- Indexes for table `theaterinventories`
+--
+ALTER TABLE `theaterinventories`
+  ADD PRIMARY KEY (`tinv_id`);
+
+--
+-- Indexes for table `theaters`
+--
+ALTER TABLE `theaters`
+  ADD PRIMARY KEY (`theater_id`);
+
+--
+-- Indexes for table `treatments`
+--
+ALTER TABLE `treatments`
+  ADD PRIMARY KEY (`tid`);
+
+--
+-- Indexes for table `triages`
+--
+ALTER TABLE `triages`
+  ADD PRIMARY KEY (`triage_id`);
+
+--
+-- Indexes for table `units`
+--
+ALTER TABLE `units`
+  ADD PRIMARY KEY (`unit_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `Index_2` (`name`);
+
+--
+-- Indexes for table `user_permissions`
+--
+ALTER TABLE `user_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_user_permissions_1` (`uid`);
+
+--
+-- Indexes for table `utils`
+--
+ALTER TABLE `utils`
+  ADD PRIMARY KEY (`uid`);
+
+--
+-- Indexes for table `vendors`
+--
+ALTER TABLE `vendors`
+  ADD PRIMARY KEY (`vendor_id`);
+
+--
+-- Indexes for table `visits`
+--
+ALTER TABLE `visits`
+  ADD PRIMARY KEY (`visit_id`);
+
+--
+-- Indexes for table `wardrounds`
+--
+ALTER TABLE `wardrounds`
+  ADD PRIMARY KEY (`wardround_id`);
+
+--
+-- Indexes for table `wards`
+--
+ALTER TABLE `wards`
+  ADD PRIMARY KEY (`ward_id`);
+
+--
+-- Indexes for table `xrays`
+--
+ALTER TABLE `xrays`
+  ADD PRIMARY KEY (`x_ray_id`);
+
+--
+-- Indexes for table `xray_photos`
+--
+ALTER TABLE `xray_photos`
+  ADD PRIMARY KEY (`xp_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6536;
+
+--
+-- AUTO_INCREMENT for table `account_types`
+--
+ALTER TABLE `account_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `additional_items`
+--
+ALTER TABLE `additional_items`
+  MODIFY `ai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329385;
+
+--
+-- AUTO_INCREMENT for table `additional_prescriptions`
+--
+ALTER TABLE `additional_prescriptions`
+  MODIFY `ap_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9656;
+
+--
+-- AUTO_INCREMENT for table `admissions`
+--
+ALTER TABLE `admissions`
+  MODIFY `admission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10752;
+
+--
+-- AUTO_INCREMENT for table `admission_items`
+--
+ALTER TABLE `admission_items`
+  MODIFY `aitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `admission_requests`
+--
+ALTER TABLE `admission_requests`
+  MODIFY `admisssion_request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+
+--
+-- AUTO_INCREMENT for table `alerts`
+--
+ALTER TABLE `alerts`
+  MODIFY `alert_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=951;
+
+--
+-- AUTO_INCREMENT for table `allergies`
+--
+ALTER TABLE `allergies`
+  MODIFY `allergy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `antenatals`
+--
+ALTER TABLE `antenatals`
+  MODIFY `ante_natal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2977;
+
+--
+-- AUTO_INCREMENT for table `antenataltreatments`
+--
+ALTER TABLE `antenataltreatments`
+  MODIFY `ante_treat_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `antenatal_histories`
+--
+ALTER TABLE `antenatal_histories`
+  MODIFY `ah_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14400;
+
+--
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `bank`
+--
+ALTER TABLE `bank`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `bank_transaction`
+--
+ALTER TABLE `bank_transaction`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `beds`
+--
+ALTER TABLE `beds`
+  MODIFY `bed_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+
+--
+-- AUTO_INCREMENT for table `benefit_packages`
+--
+ALTER TABLE `benefit_packages`
+  MODIFY `bp_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `booksurgeries`
+--
+ALTER TABLE `booksurgeries`
+  MODIFY `bs_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `careplans`
+--
+ALTER TABLE `careplans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `cash_transaction`
+--
+ALTER TABLE `cash_transaction`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `chart_of_account`
+--
+ALTER TABLE `chart_of_account`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=533;
+
+--
+-- AUTO_INCREMENT for table `chemicalpathology_tests`
+--
+ALTER TABLE `chemicalpathology_tests`
+  MODIFY `cp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19247;
+
+--
+-- AUTO_INCREMENT for table `clinicalnotes`
+--
+ALTER TABLE `clinicalnotes`
+  MODIFY `cn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8409;
+
+--
+-- AUTO_INCREMENT for table `codes`
+--
+ALTER TABLE `codes`
+  MODIFY `code_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `consultations`
+--
+ALTER TABLE `consultations`
+  MODIFY `consultation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44499;
+
+--
+-- AUTO_INCREMENT for table `dailyreports`
+--
+ALTER TABLE `dailyreports`
+  MODIFY `dr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89692;
+
+--
+-- AUTO_INCREMENT for table `deliveryinfos`
+--
+ALTER TABLE `deliveryinfos`
+  MODIFY `di_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `dependants`
+--
+ALTER TABLE `dependants`
+  MODIFY `dependant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11525;
+
+--
+-- AUTO_INCREMENT for table `discharges`
+--
+ALTER TABLE `discharges`
+  MODIFY `discharge_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11192;
+
+--
+-- AUTO_INCREMENT for table `dispensary_returns`
+--
+ALTER TABLE `dispensary_returns`
+  MODIFY `dr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3692;
+
+--
+-- AUTO_INCREMENT for table `donors`
+--
+ALTER TABLE `donors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `dosage_forms`
+--
+ALTER TABLE `dosage_forms`
+  MODIFY `dosage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `dosage_routes`
+--
+ALTER TABLE `dosage_routes`
+  MODIFY `route_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `drugs`
+--
+ALTER TABLE `drugs`
+  MODIFY `drug_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=565;
+
+--
+-- AUTO_INCREMENT for table `enrollees`
+--
+ALTER TABLE `enrollees`
+  MODIFY `enrollee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18694;
+
+--
+-- AUTO_INCREMENT for table `ewallets`
+--
+ALTER TABLE `ewallets`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23132;
+
+--
+-- AUTO_INCREMENT for table `haematology_tests`
+--
+ALTER TABLE `haematology_tests`
+  MODIFY `hy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97612;
+
+--
+-- AUTO_INCREMENT for table `hmos`
+--
+ALTER TABLE `hmos`
+  MODIFY `hmo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+
+--
+-- AUTO_INCREMENT for table `icd10_classifications`
+--
+ALTER TABLE `icd10_classifications`
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `icd10_diseases`
+--
+ALTER TABLE `icd10_diseases`
+  MODIFY `disease_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12916;
+
+--
+-- AUTO_INCREMENT for table `icd10_sub_classifications`
+--
+ALTER TABLE `icd10_sub_classifications`
+  MODIFY `sub_class_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `icpc2_diseases`
+--
+ALTER TABLE `icpc2_diseases`
+  MODIFY `disease_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=726;
+
+--
+-- AUTO_INCREMENT for table `imagings`
+--
+ALTER TABLE `imagings`
+  MODIFY `imaging_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `immunizations`
+--
+ALTER TABLE `immunizations`
+  MODIFY `immunization_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `insurances`
+--
+ALTER TABLE `insurances`
+  MODIFY `insurance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `investigations`
+--
+ALTER TABLE `investigations`
+  MODIFY `investigation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `iocharts`
+--
+ALTER TABLE `iocharts`
+  MODIFY `iochart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=987;
+
+--
+-- AUTO_INCREMENT for table `ipinventories`
+--
+ALTER TABLE `ipinventories`
+  MODIFY `ipinv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+
+--
+-- AUTO_INCREMENT for table `ipinventorydispensehistories`
+--
+ALTER TABLE `ipinventorydispensehistories`
+  MODIFY `ipdisp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2479;
+
+--
+-- AUTO_INCREMENT for table `journal`
+--
+ALTER TABLE `journal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
+-- AUTO_INCREMENT for table `labdispensehistories`
+--
+ALTER TABLE `labdispensehistories`
+  MODIFY `ldh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=902;
+
+--
+-- AUTO_INCREMENT for table `labinventories`
+--
+ALTER TABLE `labinventories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `labitems`
+--
+ALTER TABLE `labitems`
+  MODIFY `litem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+
+--
+-- AUTO_INCREMENT for table `laboratories`
+--
+ALTER TABLE `laboratories`
+  MODIFY `lab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `lab_item_logs`
+--
+ALTER TABLE `lab_item_logs`
+  MODIFY `lil_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=388;
+
+--
+-- AUTO_INCREMENT for table `managerrequests`
+--
+ALTER TABLE `managerrequests`
+  MODIFY `mrequest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `mappings`
+--
+ALTER TABLE `mappings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=670;
+
+--
+-- AUTO_INCREMENT for table `microbiology_tests`
+--
+ALTER TABLE `microbiology_tests`
+  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20029;
+
+--
+-- AUTO_INCREMENT for table `nhisdrugs`
+--
+ALTER TABLE `nhisdrugs`
+  MODIFY `ndrug_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+
+--
+-- AUTO_INCREMENT for table `nhisininventories`
+--
+ALTER TABLE `nhisininventories`
+  MODIFY `nhinv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+
+--
+-- AUTO_INCREMENT for table `nhisininventorydispensehistories`
+--
+ALTER TABLE `nhisininventorydispensehistories`
+  MODIFY `nhdisp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=651;
+
+--
+-- AUTO_INCREMENT for table `nhisinvestigations`
+--
+ALTER TABLE `nhisinvestigations`
+  MODIFY `ninvestigation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT for table `nhisoutinventories`
+--
+ALTER TABLE `nhisoutinventories`
+  MODIFY `noutinv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+
+--
+-- AUTO_INCREMENT for table `nhisoutinventorydispensehistories`
+--
+ALTER TABLE `nhisoutinventorydispensehistories`
+  MODIFY `noutdisp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=256697;
+
+--
+-- AUTO_INCREMENT for table `nhisservices`
+--
+ALTER TABLE `nhisservices`
+  MODIFY `nservice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `nhissurgeries`
+--
+ALTER TABLE `nhissurgeries`
+  MODIFY `nsurgery_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `nhistests`
+--
+ALTER TABLE `nhistests`
+  MODIFY `ntest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+
+--
+-- AUTO_INCREMENT for table `notes`
+--
+ALTER TABLE `notes`
+  MODIFY `note_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54149;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24681;
+
+--
+-- AUTO_INCREMENT for table `notificats`
+--
+ALTER TABLE `notificats`
+  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `nurseinventories`
+--
+ALTER TABLE `nurseinventories`
+  MODIFY `ninv_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `opinventories`
+--
+ALTER TABLE `opinventories`
+  MODIFY `opinv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=473;
+
+--
+-- AUTO_INCREMENT for table `opinventorydispensehistories`
+--
+ALTER TABLE `opinventorydispensehistories`
+  MODIFY `opdisp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257688;
+
+--
+-- AUTO_INCREMENT for table `outpts`
+--
+ALTER TABLE `outpts`
+  MODIFY `outpt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=635;
+
+--
+-- AUTO_INCREMENT for table `patients`
+--
+ALTER TABLE `patients`
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26877;
+
+--
+-- AUTO_INCREMENT for table `patient_diagnoses`
+--
+ALTER TABLE `patient_diagnoses`
+  MODIFY `diagnosis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72395;
+
+--
+-- AUTO_INCREMENT for table `patient_histories`
+--
+ALTER TABLE `patient_histories`
+  MODIFY `ph_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155204;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=766708;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `pharmacydispensehistories`
+--
+ALTER TABLE `pharmacydispensehistories`
+  MODIFY `pdh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24198;
+
+--
+-- AUTO_INCREMENT for table `pharmacyitemlogs`
+--
+ALTER TABLE `pharmacyitemlogs`
+  MODIFY `pilogs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6125;
+
+--
+-- AUTO_INCREMENT for table `pharmacyitems`
+--
+ALTER TABLE `pharmacyitems`
+  MODIFY `pitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=867;
+
+--
+-- AUTO_INCREMENT for table `plans`
+--
+ALTER TABLE `plans`
+  MODIFY `plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `postnatals`
+--
+ALTER TABLE `postnatals`
+  MODIFY `pn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `prescribeddrugs`
+--
+ALTER TABLE `prescribeddrugs`
+  MODIFY `pd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=326857;
+
+--
+-- AUTO_INCREMENT for table `prescribedimagings`
+--
+ALTER TABLE `prescribedimagings`
+  MODIFY `pi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23250;
+
+--
+-- AUTO_INCREMENT for table `prescribedservices`
+--
+ALTER TABLE `prescribedservices`
+  MODIFY `ps_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132326;
+
+--
+-- AUTO_INCREMENT for table `prescribedtests`
+--
+ALTER TABLE `prescribedtests`
+  MODIFY `pt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180141;
+
+--
+-- AUTO_INCREMENT for table `presentpregnancies`
+--
+ALTER TABLE `presentpregnancies`
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14658;
+
+--
+-- AUTO_INCREMENT for table `previouspregnancies`
+--
+ALTER TABLE `previouspregnancies`
+  MODIFY `prvp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3223;
+
+--
+-- AUTO_INCREMENT for table `pvheader`
+--
+ALTER TABLE `pvheader`
+  MODIFY `pv_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pv_details`
+--
+ALTER TABLE `pv_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pv_type`
+--
+ALTER TABLE `pv_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23446;
+
+--
+-- AUTO_INCREMENT for table `return_items`
+--
+ALTER TABLE `return_items`
+  MODIFY `return_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1661;
+
+--
+-- AUTO_INCREMENT for table `role_perm`
+--
+ALTER TABLE `role_perm`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
+
+--
+-- AUTO_INCREMENT for table `routinedrugs`
+--
+ALTER TABLE `routinedrugs`
+  MODIFY `routine_drug_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `scan_photos`
+--
+ALTER TABLE `scan_photos`
+  MODIFY `sp_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `scan_tests`
+--
+ALTER TABLE `scan_tests`
+  MODIFY `sc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4540;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=535;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sms`
+--
+ALTER TABLE `sms`
+  MODIFY `sms_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `stafflogins`
+--
+ALTER TABLE `stafflogins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149451;
+
+--
+-- AUTO_INCREMENT for table `staffs`
+--
+ALTER TABLE `staffs`
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+
+--
+-- AUTO_INCREMENT for table `supplies`
+--
+ALTER TABLE `supplies`
+  MODIFY `supply_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `surgeries`
+--
+ALTER TABLE `surgeries`
+  MODIFY `surgery_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tests`
+--
+ALTER TABLE `tests`
+  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+
+--
+-- AUTO_INCREMENT for table `theaterinventories`
+--
+ALTER TABLE `theaterinventories`
+  MODIFY `tinv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `theaters`
+--
+ALTER TABLE `theaters`
+  MODIFY `theater_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2096;
+
+--
+-- AUTO_INCREMENT for table `treatments`
+--
+ALTER TABLE `treatments`
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171998;
+
+--
+-- AUTO_INCREMENT for table `triages`
+--
+ALTER TABLE `triages`
+  MODIFY `triage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105002;
+
+--
+-- AUTO_INCREMENT for table `units`
+--
+ALTER TABLE `units`
+  MODIFY `unit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `user_permissions`
+--
+ALTER TABLE `user_permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `utils`
+--
+ALTER TABLE `utils`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `vendors`
+--
+ALTER TABLE `vendors`
+  MODIFY `vendor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `visits`
+--
+ALTER TABLE `visits`
+  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82562;
+
+--
+-- AUTO_INCREMENT for table `wardrounds`
+--
+ALTER TABLE `wardrounds`
+  MODIFY `wardround_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT for table `wards`
+--
+ALTER TABLE `wards`
+  MODIFY `ward_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `xrays`
+--
+ALTER TABLE `xrays`
+  MODIFY `x_ray_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
+
+--
+-- AUTO_INCREMENT for table `xray_photos`
+--
+ALTER TABLE `xray_photos`
+  MODIFY `xp_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bank`
+--
+ALTER TABLE `bank`
+  ADD CONSTRAINT `chart` FOREIGN KEY (`chart_of_account_id`) REFERENCES `chart_of_account` (`id`);
+
+--
+-- Constraints for table `bank_transaction`
+--
+ALTER TABLE `bank_transaction`
+  ADD CONSTRAINT `FK_bank_transaction_1` FOREIGN KEY (`bank_id`) REFERENCES `bank` (`id`),
+  ADD CONSTRAINT `bank_transaction_ibfk_1` FOREIGN KEY (`jid`) REFERENCES `journal` (`id`),
+  ADD CONSTRAINT `bank_transaction_ibfk_2` FOREIGN KEY (`jid2`) REFERENCES `journal` (`id`);
+
+--
+-- Constraints for table `cash_transaction`
+--
+ALTER TABLE `cash_transaction`
+  ADD CONSTRAINT `cash_transaction_ibfk_1` FOREIGN KEY (`jid`) REFERENCES `journal` (`id`),
+  ADD CONSTRAINT `cash_transaction_ibfk_2` FOREIGN KEY (`jid2`) REFERENCES `journal` (`id`);
+
+--
+-- Constraints for table `chart_of_account`
+--
+ALTER TABLE `chart_of_account`
+  ADD CONSTRAINT `FK_chart_of_account_1` FOREIGN KEY (`acc_type_id`) REFERENCES `account_types` (`id`);
+
+--
+-- Constraints for table `journal`
+--
+ALTER TABLE `journal`
+  ADD CONSTRAINT `FK_journal_1` FOREIGN KEY (`acc_id`) REFERENCES `accounts` (`id`);
+
+--
+-- Constraints for table `mappings`
+--
+ALTER TABLE `mappings`
+  ADD CONSTRAINT `fk0` FOREIGN KEY (`chartofaccount_id`) REFERENCES `chart_of_account` (`id`);
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `FK_payment_2` FOREIGN KEY (`editedby`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `pvheader`
+--
+ALTER TABLE `pvheader`
+  ADD CONSTRAINT `pv` FOREIGN KEY (`vouchertype`) REFERENCES `pv_type` (`id`),
+  ADD CONSTRAINT `u` FOREIGN KEY (`editedby`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `refund`
+--
+ALTER TABLE `refund`
+  ADD CONSTRAINT `refund_payment` FOREIGN KEY (`pid`) REFERENCES `payment` (`id`);
+
+--
+-- Constraints for table `role_perm`
+--
+ALTER TABLE `role_perm`
+  ADD CONSTRAINT `pid` FOREIGN KEY (`pid`) REFERENCES `permissions` (`id`),
+  ADD CONSTRAINT `rid` FOREIGN KEY (`roleid`) REFERENCES `roles` (`id`);
+
+--
+-- Constraints for table `user_permissions`
+--
+ALTER TABLE `user_permissions`
+  ADD CONSTRAINT `FK_user_permissions_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

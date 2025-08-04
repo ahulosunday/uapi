@@ -1,0 +1,25 @@
+SELECT a.updatedAt, a.investigation_id,a.investigation_type, a.price, b.nhis_price,  b.nhis_price - a.price,
+ b.price, b.price - a.price, 
+t.firstname, t.hospital_id, t.lastname, a.patient_id, b.name, b.type
+FROM prescribed_investigations a
+inner join investigations b on a.investigation_id = b.id
+inner join patients t on a.patient_id = t.id
+inner join patient_insurances p  on (a.patient_insurance_id = p.id and a.patient_id = p.patient_id)
+where p.is_default = 1 and a.investigation_type = 'NHIS' and p.insurance_id = 1 and p.hmo_id = 2
+
+
+SELECT s.service_id, s.service_type, s.price, s.patient_id, s.quantity, t.hospital_id, t.firstname, t.lastname, sss.name, sss.price * s.quantity
+ FROM prescribed_services s
+ inner join services sss on sss.id = s.service_id
+inner join patient_insurances ss on (ss.patient_id = s.patient_id and s.patient_insurance_id = ss.id)
+inner join patients t on s.patient_id = t.id
+where ss.is_default = 1 and s.service_type = 'NHIS' and  ss.hmo_id = 2 and ss.insurance_id = 1
+
+
+SELECT t.test_id, t.test_type, t.price, t.patient_id, tt.nhis_price , tt.name, 
+tt.price as 'normalPrce', ss.firstname, ss.hospital_id, ss.lastname
+ FROM prescribed_tests t
+inner join tests tt on tt.id = test_id
+inner join patients ss on t.patient_id = ss.id
+inner join patient_insurances p on (p.id = t.patient_insurance_id and p.patient_id = t.patient_id)
+where tt.type = 'secondary' and t.test_type = 'NHIS' and  p.hmo_id = 4 and p.insurance_id = 1

@@ -1,0 +1,343 @@
+DELIMITER $$
+CREATE  PROCEDURE DrugProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE drugid INT;
+      DECLARE patientid INT;
+      DECLARE paymentid INT;
+      DECLARE old_ids INT;
+      DECLARE cur CURSOR FOR SELECT old_id, drug_id, patient_id, id FROM prescribed_drugs;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO old_ids, drugid, patientid, paymentid;
+      UPDATE payment set service_id = drugid, uid = patientid, payment_id = paymentid where payment_id = old_ids and service_name = 'Prescribed Drugs';
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE AdditionalItemProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE drugid INT;
+      DECLARE patientid INT;
+      DECLARE paymentid INT;
+      DECLARE old_ids INT;
+      DECLARE cur CURSOR FOR SELECT old_id, drug_id, patient_id, id FROM additional_item_prescriptions;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO old_ids, drugid, patientid, paymentid;
+      UPDATE payment set service_id = drugid, uid = patientid, payment_id = paymentid where payment_id = old_ids and service_name = 'Additional Item';
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE EwalletAnteDependantProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE old_patient_ids INT;
+       DECLARE patient_ids INT;
+
+      DECLARE cur CURSOR FOR SELECT id, old_patient_id FROM patients where patient_type = 'Dependant';
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO patient_ids, old_patient_ids;
+      UPDATE ewallets set customer_id = patient_ids, tableid = patient_ids where tablename = 'Ante_Dependants' and tableid = old_patient_ids ;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE EwalletAntenatalProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE ante_natal_ids INT;
+       DECLARE patient_ids INT;
+
+      DECLARE transid1 VARCHAR(20);
+      DECLARE cur CURSOR FOR SELECT patient_id, ante_natal_id FROM svshprod.antenatals where patient_id is not null;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO patient_ids, ante_natal_ids;
+      UPDATE ewallets set customer_id = patient_ids, tableid = patient_ids, tablename = 'Ante_Patients' where tablename = 'antenatals' and tableid = ante_natal_ids ;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE EwalletAntenatalProc2()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE ante_natal_ids INT;
+       DECLARE dependant_ids INT;
+
+      DECLARE transid1 VARCHAR(20);
+      DECLARE cur CURSOR FOR SELECT dependant_id, ante_natal_id FROM svshprod.antenatals where dependant_id is not null;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO dependant_ids, ante_natal_ids;
+      UPDATE ewallets set customer_id = dependant_ids, tableid = dependant_ids, tablename = 'Ante_Dependants' where tablename = 'antenatals' and tableid = ante_natal_ids ;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE EwalletAntePatientProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE old_patient_ids INT;
+       DECLARE patient_ids INT;
+
+      DECLARE cur CURSOR FOR SELECT id, old_patient_id FROM patients where patient_type = 'Patient';
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO patient_ids, old_patient_ids;
+      UPDATE ewallets set customer_id = patient_ids, tableid = patient_ids where tablename = 'Ante_Patients' and tableid = old_patient_ids ;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE EwalletDependantProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE old_patient_ids INT;
+       DECLARE patient_ids INT;
+
+      DECLARE cur CURSOR FOR SELECT id, old_patient_id FROM patients where patient_type = 'Dependant';
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO patient_ids, old_patient_ids;
+      UPDATE ewallets set customer_id = patient_ids, tableid = patient_ids where tablename = 'Dependants' and tableid = old_patient_ids ;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE EwalletpatientProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE old_patient_ids INT;
+       DECLARE patient_ids INT;
+
+      DECLARE cur CURSOR FOR SELECT id, old_patient_id FROM patients where patient_type = 'Patient';
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO patient_ids, old_patient_ids;
+      UPDATE ewallets set customer_id = patient_ids, tableid = patient_ids where tablename = 'Patients' and tableid = old_patient_ids ;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE ExampleProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE id1 INT;
+       DECLARE uid1 INT;
+
+      DECLARE transid1 VARCHAR(20);
+      DECLARE cur CURSOR FOR SELECT id, transid, uid FROM payment;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO id1, transid1, uid1;
+      UPDATE refund set pmode = transid1, tablename ='patients', refid = uid1  where pid = id1;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE InvestigationProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE drugid INT;
+      DECLARE patientid INT;
+      DECLARE paymentid INT;
+      DECLARE old_ids INT;
+      DECLARE cur CURSOR FOR SELECT investigation_id, patient_id, id, old_id FROM prescribed_investigations;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO drugid, patientid, paymentid, old_ids;
+      UPDATE payment set service_id = drugid, uid = patientid, payment_id = paymentid where payment_id = old_ids and service_name = 'Prescribed Investigation';
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE Outpts_DrugProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE drugid INT;
+      DECLARE old_drug_id1 INT;
+      DECLARE cur CURSOR FOR SELECT distinct new_id, old_id FROM drug;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO drugid, old_drug_id1;
+      UPDATE payment set service_id = drugid where service_name = 'Outpts_Drugs' and service_id = old_drug_id1;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE Outpts_InvestigationProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE investigationid INT;
+      DECLARE old_investigation_id1 INT;
+      DECLARE cur CURSOR FOR SELECT distinct new_id, old_id FROM investigation;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO investigationid, old_investigation_id1;
+      UPDATE payment set service_id = investigationid where service_name = 'Outpts_Investigations' and service_id = old_investigation_id1;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE Outpts_ServiceProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE serviceid INT;
+      DECLARE old_service_id1 INT;
+      DECLARE cur CURSOR FOR SELECT distinct new_id, old_id FROM service;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO serviceid, old_service_id1;
+      UPDATE payment set service_id = serviceid where service_name = 'Outpts_Services' and service_id = old_service_id1;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE Outpts_TestProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE testid INT;
+      DECLARE old_test_id1 INT;
+      DECLARE cur CURSOR FOR SELECT distinct new_id, old_id FROM test;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO testid, old_test_id1;
+      UPDATE payment set service_id = testid where service_name = 'Outpts_Tests' and service_id = old_test_id1;
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE PermissionProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE p_id INT;
+    
+      DECLARE cur CURSOR FOR SELECT distinct id  FROM permissions where id not in ( select permissionId from role_permissions);
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO p_id;
+      insert into role_permissions( roleId, permissionId, createdAt, updatedAt ) values (4, p_id, now(), now());
+      insert into role_permissions( roleId, permissionId, createdAt, updatedAt ) values (1, p_id, now(), now());
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE ServiceProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE drugid INT;
+      DECLARE patientid INT;
+      DECLARE paymentid INT;
+      DECLARE old_ids INT;
+      DECLARE cur CURSOR FOR SELECT service_id, patient_id, id, old_id FROM prescribed_services;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO drugid, patientid, paymentid, old_ids;
+      UPDATE payment set service_id = drugid, uid = patientid, payment_id = paymentid where payment_id = old_ids and service_name = 'Prescribed Services';
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE TestProc()
+BEGIN
+      DECLARE done INT DEFAULT 0;
+       DECLARE drugid INT;
+      DECLARE patientid INT;
+      DECLARE paymentid INT;
+      DECLARE old_ids INT;
+      DECLARE cur CURSOR FOR SELECT test_id, patient_id, id, old_id  FROM prescribed_tests;
+      DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      OPEN cur;
+      label: LOOP
+      FETCH cur INTO drugid, patientid, paymentid, old_ids;
+      UPDATE payment set service_id = drugid, uid = patientid, payment_id = paymentid where payment_id = old_ids and service_name = 'Prescribed Test';
+      IF done = 1 THEN LEAVE label;
+      END IF;
+      END LOOP;
+      CLOSE cur;
+   END$$
+DELIMITER ;
