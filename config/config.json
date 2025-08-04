@@ -4,7 +4,7 @@
     "password": "avaCgOazlIM29ZcDeH9XUsu0g2iUyOTa",
     "database": "production_t671",
     "host": "dpg-d289m6ogjchc7393imqg-a",
-    
+     "dialect": "postgresql",
     "port": "5432"
   },
    "test": { 
@@ -20,7 +20,7 @@
     "password": "avaCgOazlIM29ZcDeH9XUsu0g2iUyOTa",
     "database": "production_t671",
     "host": "dpg-d289m6ogjchc7393imqg-a",
-   
+    "dialect": "postgresql",
     "port": "5432"
   }
 }
