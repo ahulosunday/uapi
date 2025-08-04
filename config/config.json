@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "production_t671_user",
-    "password": "avaCgOazlIM29ZcDeH9XUsu0g2iUyOTa",
-    "database": "production_t671",
-    "host": "dpg-d289m6ogjchc7393imqg-a",
+    "username": "production_cckh_user",
+    "password": "Hliad83B9Rpo7yfLwoCAW6RmvfDKJ5Lk",
+    "database": "production_cckh",
+    "host": "dpg-d28adi3e5dus73fcug50-a",
      "dialect": "postgresql",
     "port": "5432"
   },
@@ -16,11 +16,11 @@
     "port": "3306"
   },
   "production": {
-    "username": "production_t671_user",
-    "password": "avaCgOazlIM29ZcDeH9XUsu0g2iUyOTa",
-    "database": "production_t671",
-    "host": "dpg-d289m6ogjchc7393imqg-a",
-    "dialect": "postgresql",
+    "username": "production_cckh_user",
+    "password": "Hliad83B9Rpo7yfLwoCAW6RmvfDKJ5Lk",
+    "database": "production_cckh",
+    "host": "dpg-d28adi3e5dus73fcug50-a",
+     "dialect": "postgresql",
     "port": "5432"
   }
 }
